@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 
 const {intro , text , outro} = require('@clack/prompts');
 const path = require("path");
@@ -13,6 +14,7 @@ async function program() {
     const mainfile = await text({
         message: "Enter The Main Library File",
         default: "faust",
+        required: true,
         validate: (input) => {
             const filePath = path.join(process.cwd(), input);
             if (!fs.existsSync(filePath)) {
@@ -24,6 +26,7 @@ async function program() {
     // Validate author input (optional)
     const author = await text({
         message: "Enter The Author",
+        required: true,
         validate: (input) => {
             if (input.trim() === '') {
                 return "Author name cannot be empty.";
@@ -34,6 +37,7 @@ async function program() {
     // Validate version input (optional)
     const version = await text({
         message: "Enter The Version",
+        required: true,
         validate: (input) => {
             if (!Semver.valid(input)) {
                 return "Invalid version format. Please use x.y.z format (e.g., 1.0.0).";
