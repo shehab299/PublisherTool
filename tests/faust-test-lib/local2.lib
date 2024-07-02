@@ -1,0 +1,2 @@
+os = library("pkg:faust/faust/oscillators.lib@1.5.1");
+

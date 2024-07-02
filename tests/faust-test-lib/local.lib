@@ -1,0 +1,3 @@
+no = library("pkg:faust/faust/noises.lib@1.4.1")
+local = library("./local2.lib");
+
